@@ -55,9 +55,9 @@
         <%= link_to "Home", home_index_path, class: "navbar-brand" %>  <%= link_to "Products", products_path, class: "navbar-brand" %>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
-           <!--  <li><%= link_to "Link1", "/path1"  %></li>
-            <li><%= link_to "Link2", "/path2"  %></li>
-            <li><%= link_to "Link3", "/path3"  %></li> -->
+           <form class="navbar-search pull-left" action="">
+				<input class="search-query span2" type="text" placeholder="Search">
+			</form>
           </ul>
         </div>
       </div>
