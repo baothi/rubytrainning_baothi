@@ -1,8 +1,15 @@
 RubytrainningBaothi::Application.routes.draw do
-  resources :products
-
   root "home#index"
   get "home/index"
+
+
+
+  resources :products do
+    collection do
+        get :search
+    end
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
