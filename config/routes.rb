@@ -1,4 +1,8 @@
 RubytrainningBaothi::Application.routes.draw do
+  resources :comments
+
+  resources :categories
+
   root "home#index"
   get "home/index"
 
