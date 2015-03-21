@@ -5,8 +5,11 @@ RubytrainningBaothi::Application.routes.draw do
 
 
   resources :products do
+    # member do
+    #   post :search
+    # end
     collection do
-        get :search
+        post :search
     end
   end
 
