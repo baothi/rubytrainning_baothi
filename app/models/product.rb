@@ -1,4 +1,4 @@
 class Product < ActiveRecord::Base
-	belong_to :category
+	belongs_to :category
 	has_many :comments
 end
