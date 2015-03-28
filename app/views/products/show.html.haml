@@ -23,6 +23,13 @@
       = model_class.human_attribute_name(:image)
   %dd  
     = @product.image
+
+.commnents
+  - @comments.each do |comment|
+    %p
+      %span= comment.id
+      %span= comment.content 
+
 %br/
 %p Post comment
 = form_for @comment do |f|
