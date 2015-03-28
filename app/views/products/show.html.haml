@@ -1,15 +1,48 @@
 - model_class = Product
 .page-header
-  %h1  =t '.title', :default => model_class.model_name.human.titleize
-%dl .dl-horizontal
-  %dt  %strong  = model_class.human_attribute_name(:name)
-  %dd  = @product.name
-  %dt  %strong  = model_class.human_attribute_name(:description)
-  %dd  = @product.description
-  %dt  %strong  = model_class.human_attribute_name(:price)
-  %dd  = @product.price
-  %dt  strong  = model_class.human_attribute_name(:image)
-  %dd  = @product.image
+  %h1  
+    =t '.title', :default => model_class.model_name.human.titleize
+%dl.dl-horizontal
+  %dt  
+    %strong  
+      = model_class.human_attribute_name(:name)
+  %dd  
+    = @product.name
+  %dt  
+    %strong  
+      = model_class.human_attribute_name(:description)
+  %dd  
+    = @product.description
+  %dt  
+    %strong  
+      = model_class.human_attribute_name(:price)
+  %dd  
+    = @product.price
+  %dt  
+    %strong  
+      = model_class.human_attribute_name(:image)
+  %dd  
+    = @product.image
+%br/
+%p Post comment
+= form_for @comment do |f|
+  - if @comment.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@comment.errors.count, "error")} prohibited this comment from being saved:"
+      %ul
+        - @comment.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = hidden_field_tag("comment[product_id]", @product.id)
+    = f.label :content
+    = f.text_area :content
+  .actions
+    = f.submit 'Save'
+
+
+
+
 = link_to t('.back', :default => t("helpers.links.back")),
               products_path, :class => 'btn btn-default'
 = link_to t('.edit', :default => t("helpers.links.edit")),

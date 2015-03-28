@@ -4,16 +4,18 @@
       .panel-heading
         %h3.panel-title
           = pluralize(@product.errors.count, "error")
-            prohibited this product from being saved:
-      .panel-body
-        %ul
-        - @product.errors.full_messages.each do |msg|
-          %li= msg
+          prohibited this product from being saved:
+  .panel-body
+    %ul
+    - @product.errors.full_messages.each do |msg|
+      %li
+        = msg
+
   .from-group
     = f.label :name, :class => 'control-lable col-lg-2'
     .col-lg-10
       = f.text_field :name, :class => 'form-control'
-    =f.error_span(:name)
+    = f.error_span(:name)
   .form-group
     = f.label :description, :class => 'control-label col-lg-2'
     .col-lg-10
@@ -23,13 +25,13 @@
     = f.label :price, :class => 'control-label col-lg-2'
     .col-lg-10
       = f.text_field :price, :class => 'form-control'
-    =f.error_span(:price)
+    = f.error_span(:price)
   .form-group
-    =f.label :image, :class => 'control-label col-lg-2'
-      .col-lg-10
-        = f.text_field :image, :class => 'form-control'
-      =f.error_span(:image)
+    = f.label :image, :class => 'control-label col-lg-2'
+    .col-lg-10
+      = f.text_field :image, :class => 'form-control'
+    = f.error_span(:image)
   .form-group
     .col-lg-offset-2.col-lg-10
       = f.submit nil, :class => 'btn btn-primary'
-      = link_to "cancel", products_path, :class => 'btn btn-default' 
+      = link_to "cancel", products_path, :class => 'btn btn-default'
