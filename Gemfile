@@ -35,6 +35,8 @@ gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootst
 gem 'haml'
 gem "haml-rails"
 gem 'simple_form'
+gem "therubyracer"
+gem "less-rails"
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
