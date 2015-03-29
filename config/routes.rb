@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :products
+  resources :products do
+    member do
+      post 'comments'
+    end
+  end
 
   get 'home/index'
   root 'home#index'
