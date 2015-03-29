@@ -1,21 +1,8 @@
-RubytrainningBaothi::Application.routes.draw do
-  resources :comments
+Rails.application.routes.draw do
+  resources :products
 
-  resources :categories
-
-  root "home#index"
-  get "home/index"
-
-
-
-  resources :products do
-    # member do
-    #   post :search
-    # end
-    collection do
-        post :search
-    end
-  end
+  get 'home/index'
+  root 'home#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

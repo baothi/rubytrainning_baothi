@@ -1,1 +1,0 @@
-# rubytrainning_baothi
