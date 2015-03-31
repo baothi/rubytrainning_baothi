@@ -44,3 +44,4 @@ gem "haml-rails"
 #gem 'simple_form'
 gem "therubyracer"
 gem "less-rails"
+gem 'devise'

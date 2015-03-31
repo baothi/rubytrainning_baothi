@@ -1,0 +1,59 @@
+/ .navbar.navbar-inverse.navbar-static-top
+/   .container
+/     %button.navbar-toggle(type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse")
+/       %span.icon-bar
+/       %span.icon-bar
+/       %span.icon-bar
+/     %a.navbar-brand(href="#") RubytrainningBaothi
+/     .navbar-collapse.collapse.navbar-responsive-collapse
+/       %ul.nav.navbar-nav
+/         %li= link_to "Link 1", "/path1"
+/         %li= link_to "Link 2", "/path2"
+/         %li= link_to "Link 3", "/path3"
+/         %li= link_to "Link 3", "/path3"
+
+
+
+/ Static navbar
+%nav.navbar.navbar-inverse
+  .container
+    .navbar-header
+      %button.navbar-toggle.collapsed{"aria-controls" => "navbar", "aria-expanded" => "false", "data-target" => "#navbar", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      %a.nav.navbar-nav{:href => "#"}
+        %img{:alt => "Zing MP3 - Đỉnh cao âm nhạc", :src => "http://static.mp3.zdn.vn/skins/zmp3-v4.1/images/logo.png"}/
+    #navbar.navbar-collapse.collapse
+      %ul.nav.navbar-nav
+        / %li.active= link_to 'Recipes',recipes_path
+        / %li= link_to 'Events',events_path
+        / %li= link_to 'Pin',Pin_path
+        %li.dropdown
+          %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+            Dropdown
+            %span.caret
+          %ul.dropdown-menu{:role => "menu"}
+            %li
+              %a{:href => "#"} Action
+            %li
+              %a{:href => "#"} Another action
+            %li
+              %a{:href => "#"} Something else here
+            %li.divider
+            %li.dropdown-header Nav header
+            %li
+              %a{:href => "#"} Separated link
+            %li
+              %a{:href => "#"} One more separated link
+      %ul.nav.navbar-nav.navbar-right
+        - if user_signed_in?
+          %li= link_to "#{current_user.email}"
+          %li.active= link_to "Logout",destroy_user_session_path, method: |
+              :delete                                             |
+        - else
+          %li= link_to "Login", new_user_session_path
+          %li.active= link_to "SignUp",new_user_registration_path
+    / /.nav-collapse
+
