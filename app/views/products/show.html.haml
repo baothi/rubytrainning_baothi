@@ -19,6 +19,18 @@
   %br
   = @product.image
 
+%form{:action => comments_path, :method =>"post"}
+  %textarea{:name => "comment[content]"}
+  %p
+  %input{:name=>"comment[product_id]", :type=>"hidden",:value => @product.id}
+    %button.btn.btn-info.dropdown-toggle{:type => "submit"} Submit
+    %p All comment
+.commnents
+  - @comments.each do |comment|
+    %p
+      %span= comment.id
+      %span= comment.content 
+
 
 = link_to t('.back', :default => t("helpers.links.back")), products_path, :class => 'btn btn-default'
 = link_to t('.edit', :default => t("helpers.links.edit")), edit_product_path(@product), :class => 'btn btn-default'
