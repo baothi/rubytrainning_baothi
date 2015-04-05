@@ -19,19 +19,26 @@
   %br
   = @product.image
 
-%form{:action => comments_path, :method =>"post"}
-  %textarea{:name => "comment[content]"}
-  %p
-  %input{:name=>"comment[product_id]", :type=>"hidden",:value => @product.id}
-    %button.btn.btn-info.dropdown-toggle{:type => "submit"} Submit
-    %p All comment
-.commnents
-  - @comments.each do |comment|
-    %p
-      %span= comment.id
-      %span= comment.content 
+/ %form{:action => comments_product_path, :method =>"post"}
+/   %textarea{:name => "comment[content]"}
+/   %p
+/   %input{:name=>"comment[product_id]", :type=>"hidden",:value => @product.id}
+/     %button.btn.btn-info.dropdown-toggle{:type => "submit"} Submit
+/     %p All comment
+/ .commnents
+/   - @comments.each do |comment|
+/     %p
+/       %span= comment.id
+/       %span= comment.content 
 
-
+#comments_content= render "products/comments", :comments => @comments
+%br/
+%br
+%input{:type => "hidden",:id => "product_id",:value => @product.id}
+%input{:name => "comment_content",:id => "comment_content"}
+%input{:type => "button",:value => "submit",:id => "btn_submit"}
+%br/
+%br
 = link_to t('.back', :default => t("helpers.links.back")), products_path, :class => 'btn btn-default'
 = link_to t('.edit', :default => t("helpers.links.edit")), edit_product_path(@product), :class => 'btn btn-default'
 = link_to t('.destroy', :default => t("helpers.links.destroy")), product_path(@product), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'

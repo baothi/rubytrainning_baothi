@@ -4,6 +4,9 @@ Rails.application.routes.draw do
     member do
       post 'comments'
     end
+    collection do
+      get 'comments'
+    end
   end
 
   get 'home/index'

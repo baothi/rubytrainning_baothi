@@ -11,9 +11,27 @@ class ProductsController < ApplicationController
   # GET /products/1.json
   def show
     @comments = @product.comments
-    @comment = Comment.new
+    # @comment = Comment.new
   end
 
+  def comments
+    # byebug
+    # @comments = Comment.new(:content=>params[contents])
+    # byebug
+    # @comments = @product.comments
+    # @comment = Comment.new
+    product_id       = params[:product_id]
+    comments_content = params[:comment_content]
+    comment          = Comment.new(:product_id => product_id,:content => comments_content)
+    comment.save
+    comments         = Comment.where(:product_id => product_id)
+    render :partial => "products/comments", :locals => {:comments => comments}
+    puts "successfully"
+
+    # puts "1234567"
+    # puts "product_id ", product_id
+    # puts "comments_content ", comments_content
+  end
   # GET /products/new
   def new
     @product = Product.new

@@ -1,3 +1,12 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+$("#btn_submit").click ->
+  product_id_value = $("#product_id").val()
+  comment_content_value = $("#comment_content").val()
+  # alert(comment_content_value)
+  $.ajax
+    type: "GET"
+    url: " /products/comments"
+    data: {product_id: product_id_value, comment_content: comment_content_value}
+    success: (data) ->
+      $("#comment_conetent").val("")
+      $("#comments_content").html data
+    error: (data) ->

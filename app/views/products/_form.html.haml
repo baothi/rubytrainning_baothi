@@ -21,5 +21,5 @@
     = f.error_span(:image)
   .form-group
     .col-lg-offset-2.col-lg-10
-      = f.submit nil,class: 'btn btn-primary'
+      = f.submit nil,class: 'btn btn-primary',:id => "btn_save_product"
       = link_to t('.cancel', :default => t("helpers.links.cancel")), products_path, :class => 'btn btn-default'
