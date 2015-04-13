@@ -36,7 +36,9 @@ gem 'spring',        group: :development
 # gem 'capistrano-rails', group: :development
 
 # Use debugger
- gem 'byebug'
+gem 'byebug'
+
+gem 'better_errors'
 
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 gem 'haml'
@@ -45,3 +47,4 @@ gem "haml-rails"
 gem "therubyracer"
 gem "less-rails"
 gem 'devise'
+gem 'carrierwave'

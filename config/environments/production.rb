@@ -45,13 +45,22 @@ Rails.application.configure do
   config.log_level = :info
 
 
-  config.action_mailer.default_url_options = {:host => 'yourdomain.com'}
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-  :address => "127.0.0.1",
-  :port    => 25,
-  :domain  => 'yourdomain.com'
-  }
+  # config.action_mailer.default_url_options = {:host => 'yourdomain.com'}
+  # config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.smtp_settings = {
+  # :address => "127.0.0.1",
+  # :port    => 25,
+  # :domain  => 'yourdomain.com'
+  # }
+   config.action_mailer.smtp_settings = {
+      :address              => "smtp.gmail.com",
+      :port                 => 587,
+      :domain               => "baothi246@gmail.com",
+      :user_name            => "xyz@gmail.com",
+      :password             => "yourpassword",
+      :authentication       => :plain,
+      :enable_starttls_auto => true
+}
   # Prepend all log lines with the following tags.
   # config.log_tags = [ :subdomain, :uuid ]
 

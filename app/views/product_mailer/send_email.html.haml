@@ -1,0 +1,34 @@
+
+:css
+  .table-bordered{
+    border: 1px solid #DDD;
+  }
+  .table{
+    width: 100%;
+    border: 1px solid #DDD;
+    max-width: 100%;
+    margin-bottom: 20px;
+    background-color: transparent;
+    border-collapse: collapse;
+    border-spacing: 0px;
+  }
+.row
+  .container.header_top
+    .table-bordered
+      %table.table
+        %thead
+          %tr
+            %th Name
+            %th Description
+            %th Price
+            %th Image
+            / %th Category
+            %th{:colspan => "4"}
+        %tbody
+          - @products.each do |product|
+            %tr
+              %td= product.name
+              %td= product.description
+              %td= product.price
+              %td= product.image
+             

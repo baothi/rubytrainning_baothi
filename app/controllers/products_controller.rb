@@ -14,6 +14,14 @@ class ProductsController < ApplicationController
     # @comment = Comment.new
   end
 
+  def user_send_mail
+    if current_user
+     @products = Product.all
+     ProductMailer.send_email(@products,current_user.email).deliver
+     redirect_to products_url
+    end
+  end
+
   def comments
     # byebug
     # @comments = Comment.new(:content=>params[contents])

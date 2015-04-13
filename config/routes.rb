@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     end
     collection do
       get 'comments'
+      get "user_send_mail"
     end
   end
 
