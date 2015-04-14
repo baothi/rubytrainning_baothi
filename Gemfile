@@ -47,4 +47,4 @@ gem "haml-rails"
 gem "therubyracer"
 gem "less-rails"
 gem 'devise'
-gem 'carrierwave'
+gem "paperclip", "~> 4.2"

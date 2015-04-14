@@ -1,4 +1,4 @@
-= form_for @product, html: { class: "form form-horizontal product" } do |f|
+= form_for @product,:url => products_path, html: { :multipart => true,class: "form form-horizontal product" } do |f|
   .form-group
     = f.label :name, class: 'control-label col-lg-2'
     .col-lg-10
@@ -15,10 +15,10 @@
       = f.text_field :price, class: 'form-control', required: true
     = f.error_span(:price)
   .form-group
-    = f.label :image, class: 'control-label col-lg-2'
+    = f.label :avatar, class: 'control-label col-lg-2'
     .col-lg-10
-      = f.text_field :image, class: 'form-control', required: true
-    = f.error_span(:image)
+      = f.file_field :avatar
+    = f.error_span(:avatar)
   .form-group
     .col-lg-offset-2.col-lg-10
       = f.submit nil,class: 'btn btn-primary',:id => "btn_save_product"
