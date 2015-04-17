@@ -18,7 +18,9 @@
         %td= product.name
         %td= product.description
         %td= product.price
-        %td= product.image
+        / %td= product.image
+        %td= image_tag product.avatar_url(:thumb) if product.avatar?
+        / <td> <%= image_tag user.avatar_url(:thumb) if user.avatar? %></td>
         %td=l product.created_at
         %td
           = link_to t('.edit', :default => t("helpers.links.edit")), edit_product_path(product), :class => 'btn btn-default btn-xs'

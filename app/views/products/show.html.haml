@@ -17,7 +17,8 @@
 %p
   %strong= model_class.human_attribute_name(:image) + ':'
   %br
-  = @product.image
+  = image_tag @product.avatar_url(:thumb) if @product.avatar?
+  / = @product.image
 
 / %form{:action => comments_product_path, :method =>"post"}
 /   %textarea{:name => "comment[content]"}
