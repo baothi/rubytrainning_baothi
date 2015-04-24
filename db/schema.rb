@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150415133300) do
+ActiveRecord::Schema.define(version: 20150419130553) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "edbspl"
@@ -19,6 +19,14 @@ ActiveRecord::Schema.define(version: 20150415133300) do
   enable_extension "edb_dblink_libpq"
   enable_extension "edb_dblink_oci"
   enable_extension "pldbgapi"
+
+  create_table "categories", force: true do |t|
+    t.string   "name"
+    t.string   "address"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "product_id"
+  end
 
   create_table "comments", force: true do |t|
     t.integer  "product_id"
@@ -42,6 +50,7 @@ ActiveRecord::Schema.define(version: 20150415133300) do
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.string   "avatar"
+    t.integer  "category_id"
   end
 
   create_table "users", force: true do |t|

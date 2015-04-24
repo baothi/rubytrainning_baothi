@@ -1,0 +1,39 @@
+= nested_form_for @category, html: { class: "form form-horizontal category" } do |f|
+  .form-group
+    = f.label :name, class: 'control-label col-lg-2'
+    .col-lg-10
+      = f.text_field :name, class: 'form-control', required: true
+    = f.error_span(:name)
+  .form-group
+    = f.label :address, class: 'control-label col-lg-2'
+    .col-lg-10
+      = f.text_field :address, class: 'form-control', required: true
+    = f.error_span(:address)
+  
+  = f.fields_for :products do |p|
+    .form-group
+      = p.label :name_product, class: 'control-label col-lg-2'
+      .col-lg-10
+        = p.text_field :name, class: 'form-control', required: true
+      = f.error_span(:name)
+    .form-group
+      = p.label :description_product, class: 'control-label col-lg-2'
+      .col-lg-10
+        = p.text_field :description, class: 'form-control', required: true
+      = p.error_span(:description)
+    .form-group
+      = p.label :price_product, class: 'control-label col-lg-2'
+      .col-lg-10
+        = p.text_field :price, class: 'form-control', required: true
+      = p.error_span(:price)
+    .form-group
+      = p.label :avatar_product, class: 'control-label col-lg-2'
+      .col-lg-10
+        = p.file_field :avatar
+      = p.error_span(:avatar)
+  / .form-group
+  = f.link_to_add "Them San Pham", :products      
+  .form-group
+    .col-lg-offset-2.col-lg-10
+      = f.submit nil,class: 'btn btn-primary'
+      = link_to t('.cancel', :default => t("helpers.links.cancel")), categories_path, :class => 'btn btn-default'

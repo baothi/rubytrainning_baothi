@@ -50,3 +50,7 @@ gem 'devise'
 # gem "paperclip"
 gem "rmagick"
 gem "carrierwave"
+gem 'jcrop-rails-v2'
+gem 'fog'
+gem 'nested_form'
+gem 'globalize', '~> 4.0.3'

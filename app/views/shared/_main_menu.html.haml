@@ -6,8 +6,7 @@
       %ul.nav.navbar-nav
         %li= link_to "Home", root_path
         %li= link_to "Products", products_path
-        %li
-          %a{:href => "#contact"} Contact
+        %li= link_to "Category", categories_path
         %li.dropdown
           %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button"}
             Dropdown

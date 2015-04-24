@@ -30,5 +30,7 @@
               %td= product.name
               %td= product.description
               %td= product.price
-              %td= product.image
+              %td= product.avatar
+              / %td= image_tag product.avatar_url(:thumb) if product.avatar?
+              / %td= image_tag attachments[product.avatar_url(:thumb)].url
              

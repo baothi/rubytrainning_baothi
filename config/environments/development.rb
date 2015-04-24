@@ -40,7 +40,7 @@ Rails.application.configure do
       :port                 => 587,
       :domain               => "localhost:3000",
       :user_name            => "baothi246@gmail.com",
-      :password             => "Baothi1605",
+      :password             => "baothi1605",
       :authentication       => "plain",
       :enable_starttls_auto => true
       # :delivery_method      => :smtp

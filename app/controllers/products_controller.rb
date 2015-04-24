@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
-
+  skip_before_action :verify_authenticity_token
   # GET /products
   # GET /products.json
   def index
@@ -16,9 +16,10 @@ class ProductsController < ApplicationController
 
   def user_send_mail
     if current_user
-     @products = Product.all
-     ProductMailer.send_email(@products,current_user.email).deliver
-     redirect_to products_url
+      @products = Product.all
+      ProductMailer.send_email(@products,current_user.email).deliver
+      redirect_to products_url
+      format.html { redirect_to products_url, notice: 'goi mail thanh cong.' }
     end
   end
 
@@ -52,9 +53,10 @@ class ProductsController < ApplicationController
   # POST /products
   # POST /products.json
   def create
-    @product = Product.create(product_params)
+    # byebug
+    @product = Product.new(product_params)
 
-    respond_to do |format|
+    # respond_to do |format|
       if @product.save
         if params[:product][:avatar].present?
           render :crop
@@ -66,21 +68,28 @@ class ProductsController < ApplicationController
         format.html { render :new }
         format.json { render json: @product.errors, status: :unprocessable_entity }
       end
-    end
+    # end
   end
 
   # PATCH/PUT /products/1
   # PATCH/PUT /products/1.json
   def update
-    respond_to do |format|
+    byebug
+    # puts "1234567890123456789012345678"
+    # respond_to do |format|
+      
       if @product.update(product_params)
+        if params[:product][:avatar].present?
+          render :crop
+        else
         format.html { redirect_to @product, notice: 'Product was successfully updated.' }
         format.json { render :show, status: :ok, location: @product }
+      end
       else
         format.html { render :edit }
         format.json { render json: @product.errors, status: :unprocessable_entity }
       end
-    end
+    # end
   end
 
   # DELETE /products/1
